@@ -1,13 +1,12 @@
-import math 
 import matplotlib.pyplot as plt
 import numpy as np
 
 def calcFunction(x):
-    return x**3+6*x**2-5*x-6
+    return pow(x,2)+5
 
-
-min = -50
-max = 50
+points = 5
+min = points*-1
+max = points+1
 
 xpoints = np.arange(min, max)
 ypoints = np.array([])
@@ -15,10 +14,15 @@ ypoints = np.array([])
 for num in np.sort(xpoints):
     newValue = calcFunction(num)
     ypoints = np.append(ypoints, newValue)
-
-    #print(f"x=>{num}")
-    print(f"x=>{num} <=> y=> {newValue}")
+    
+    print(f"x=>{num}, y=>{newValue}")
 
 
 plt.plot(xpoints, ypoints)
+
+zerosX = np.array([1, 2, 3])
+zerosY = np.array([0, 0, 0])
+
+plt.plot(zerosX, zerosY, 'o')
+
 plt.show()
