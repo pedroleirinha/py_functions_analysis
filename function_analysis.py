@@ -21,15 +21,14 @@ def findZeros(a, b, c):
         print ("This equation has no real solution")
     elif d == 0:
         x = (-b+math.sqrt(d))/(2*a)
-        np.append(zeros, x)
+        zeros = np.append(zeros, x)
         print ("This equation has one solutions: ", x)
     else:
         x1 = ((-b)+math.sqrt(d))/(2*a)
         x2 = ((-b)-math.sqrt(d))/(2*a)
-        np.append(zeros, x1)
+        zeros = np.append(zeros, [x1,x2])
         print ("This equation has two solutions: ", x1, " and", x2)
     
-    print(zeros)
     return zeros
 
 points = 20
@@ -53,11 +52,9 @@ for num in np.sort(xpoints):
 
 plt.plot(xpoints, ypoints)
 
-print(f"zeros: {findZeros(a,b,c)}")
-
-zerosX = np.array([1, 2])
+zerosX = findZeros(a,b,c)
+print(f"The zeroes of the function are: {zerosX}")
 zerosY = np.array([0, 0])
 
-# plt.plot(zerosX, zerosY, 'o')
-
-# plt.show()
+plt.plot(zerosX, zerosY, 'o')
+plt.show()
