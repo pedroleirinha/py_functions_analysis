@@ -5,16 +5,18 @@ from function_class import Function
 # print(f"roots: {np.polynomial.polynomial.polyroots(coeff)}")
 points = 100
 
-a = 1
-b = -6
-c = 11
+a = -1
+b = 2
+c = 5
 d = -6
+e = 0
+f = 0
 
-function_values = [a,b,c,d]
+function_values = [a,b,c,d, e,f]
 
-func1 = Function(function_values)
-func_derivative = Function(func1.findDerivative())
-func_derivative_second = Function(func_derivative.findDerivative())
+func1 = Function(function_values, points)
+func_derivative = Function(func1.findDerivative(), points)
+func_derivative_second = Function(func_derivative.findDerivative(), points)
 
 print(f"Original function: {func1.showFunction()}")
 print(f"The function derivate is {func_derivative.showFunction()}")
