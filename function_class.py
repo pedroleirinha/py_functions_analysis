@@ -66,7 +66,7 @@ class Function:
             degree -= 1
             index += 1
             
-        derivate = derivate[:-1]
+        derivate = derivate[:-1] #removes last item
         
         return derivate
             
@@ -74,10 +74,13 @@ class Function:
     
         for num in np.sort(self.xpoints):
             newValue = self.calcFunction(num)
+            
             self.ypoints = np.append(self.ypoints, newValue)
-            #print(f"x={num}, y={newValue}")
-            if round(newValue) == 0: 
-                self.zerosX.add(round(num))
+            
+            print(f"x={num}, y={round(newValue, 5)}")
+            if round(newValue, 5) == 0: 
+                print(f"HERE: x={num}, y={newValue}")
+                self.zerosX.add(round(num, 5))
             
     def plotFunction(self, showZeros, func_name_label = "f", plotColor = "blue"):
     
